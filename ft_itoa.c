@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mverger <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 18:07:47 by mverger           #+#    #+#             */
-/*   Updated: 2021/11/19 18:15:45 by mverger          ###   ########.fr       */
+/*   Updated: 2023/01/09 16:52:41 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,9 @@ static char	*output_cpy(int n, int nb_digit, char *str_output, int neg)
 {
 	int	i;
 	int	r;
-	int	nb;
 	int	j;
 
 	j = 0;
-	nb = n;
 	i = 0;
 	nb_digit -= 1;
 	if (neg == 1)

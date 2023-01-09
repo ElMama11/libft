@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lstsecondlast.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
+/*   By: mverger <mverger@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 16:54:54 by mverger           #+#    #+#             */
-/*   Updated: 2023/01/09 16:50:21 by mverger          ###   ########.fr       */
+/*   Created: 2022/01/18 20:05:27 by mverger           #+#    #+#             */
+/*   Updated: 2022/02/10 14:40:30 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+t_list	*ft_lstsecondlast(t_list *lst)
 {
-	size_t	i;
-
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
+	if (lst == NULL || lst->next == NULL)
+		return (lst);
+	while (lst->next != NULL)
+	{
+		if (lst->next->next == NULL)
+			return (lst);
+		lst = lst->next;
+	}
+	return (lst);
 }
-
-/*int main (void)
-{
-    char *c = "loop";
-
-    printf("ft  %d\n",ft_strlen(c));
-    printf("vrai  %lu",strlen(c));
-
-    return (0); 
-}*/

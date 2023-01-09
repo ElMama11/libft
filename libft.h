@@ -3,20 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
+/*   By: jthibaul <jthibaul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 14:36:01 by mverger           #+#    #+#             */
-/*   Updated: 2022/01/12 22:41:32 by mverger          ###   ########lyon.fr   */
+/*   Updated: 2022/11/24 04:25:23 by jthibaul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# ifndef OPEN_MAX
+#  define OPEN_MAX 1000
+# endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 5
+# endif
 
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <fcntl.h>
+# include <stdarg.h>
+
 
 typedef struct s_list
 {
@@ -67,4 +76,35 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/* ft_printf */
+
+int		ft_putnbrr(int n);
+int		ft_putcharr(int c);
+int		ft_putstr(char *s);
+int		ft_unsigned_putnbr(unsigned int n);
+int		ft_convert_low_hexa(unsigned int n);
+int		ft_convert_upper_hexa(unsigned int n);
+int		ft_convert_ptr(unsigned long n);
+int		ft_printf(const char *format, ...);
+int		check_type(char c, int counter, va_list args);
+
+/* Custom funcs */
+
+size_t	ft_tablen(char **tab);
+void	ft_free_tab(char **tab);
+void	*ft_memallocexit(size_t size);
+long	ft_atol(const char *str);
+t_list	*ft_lstsecondlast(t_list *lst);
+int		ft_strstr(char *str, char *to_find);
+
+/*		GET NEXT LINE		*/
+void			*ft_memmove_gnl(char *dest, char *src, int n);
+int				ft_strlen2(const char *s);
+char			*ft_strjoin_gnl(char *s1, char *s2, int size);
+void			buf_mem_move(char *buf, char *c);
+char			*read_buf(char *buf);
+char			*str_fill(char *buf, char *str, int fd);
+char			*get_next_line(int fd);
+
 #endif

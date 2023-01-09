@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memallocexit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mverger <mverger@42lyon.fr>                +#+  +:+       +#+        */
+/*   By: mverger <mverger@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 16:54:54 by mverger           #+#    #+#             */
-/*   Updated: 2023/01/09 16:50:21 by mverger          ###   ########.fr       */
+/*   Created: 2022/02/10 14:39:51 by mverger           #+#    #+#             */
+/*   Updated: 2022/02/10 14:44:16 by mverger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	*ft_memallocexit(size_t size)
 {
-	size_t	i;
+	void	*ptr;
 
-	i = 0;
-	if (!s)
-		return (0);
-	while (s[i])
-		i++;
-	return (i);
+	ptr = malloc(size);
+	if (ptr == NULL)
+	{
+		exit(137);
+	}
+	return (ptr);
 }
-
-/*int main (void)
-{
-    char *c = "loop";
-
-    printf("ft  %d\n",ft_strlen(c));
-    printf("vrai  %lu",strlen(c));
-
-    return (0); 
-}*/
